@@ -12,7 +12,8 @@ pipeline {
       steps {
         sh 'mvn clean install -DskipTests'
         echo 'jar created'
-        sh 'docker build -t simple-maven-project-with-tests:latest .'
+        sh 'ls -l'
+        sh 'docker ps'
         echo 'docker created'
       }
     }
