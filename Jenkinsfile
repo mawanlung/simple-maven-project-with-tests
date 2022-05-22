@@ -11,12 +11,9 @@ pipeline {
       }
       steps {
         sh 'mvn clean install -DskipTests'
-      }
-    }
-    stage('Docker Build') {
-      agent any
-      steps {
+        echo 'jar created'
         sh 'docker build -t simple-maven-project-with-tests:latest .'
+        echo 'docker created
       }
     }
   }
