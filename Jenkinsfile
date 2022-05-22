@@ -2,7 +2,7 @@
 
 pipeline {
   agent none
-  tools { 'myDocker' 
+  tools { docker 'myDocker' 
     }
   stages {
     stage('Maven Install') {
