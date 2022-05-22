@@ -18,7 +18,7 @@ pipeline {
         sh 'mvn clean install -DskipTests'
         echo 'jar created'
         sh 'ls -l'
-        sh 'docker ps'
+        sh 'dockerHome ps'
         echo 'docker created'
       }
     }
