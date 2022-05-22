@@ -13,7 +13,7 @@ pipeline {
         sh 'mvn clean install -DskipTests'
         echo 'jar created'
         sh 'docker build -t simple-maven-project-with-tests:latest .'
-        echo 'docker created
+        echo 'docker created'
       }
     }
   }
