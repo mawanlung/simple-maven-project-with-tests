@@ -22,7 +22,7 @@ pipeline {
       steps {
         withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-          sh 'docker push simple-maven-project-with-tests:latest'
+          sh 'docker push hub.docker.com:5000/mawanlung/simple-maven-project-with-tests:latest'
         }
       }
     }
