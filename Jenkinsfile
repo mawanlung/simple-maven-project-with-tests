@@ -1,13 +1,6 @@
-#!groovy
-
 pipeline {
   agent none
   stages {
-    
-    stage('Initialize'){
-        def dockerHome = tool 'myDocker'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
-    }
     stage('Maven Install') {
       agent {
         docker {
@@ -15,11 +8,13 @@ pipeline {
         }
       }
       steps {
-        sh 'mvn clean install -DskipTests'
-        echo 'jar created'
-        sh 'ls -l'
-        sh 'dockerHome ps'
-        echo 'docker created'
+        sh 'mvn clean install'
+      }
+    }
+    stage('Docker Build') {
+      agent any
+      steps {
+        sh 'docker build -t simple-maven-project-with-tests:latest .'
       }
     }
   }
