@@ -8,7 +8,7 @@ pipeline {
         }
       }
       steps {
-        sh 'mvn clean install'
+        sh 'mvn -e clean install'
       }
     }
     stage('Docker Build') {
