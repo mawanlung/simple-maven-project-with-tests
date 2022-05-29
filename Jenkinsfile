@@ -2,6 +2,7 @@ pipeline {
   agent none
   stages {
     stage('Maven Install') {
+      steps {
  withMaven(
         // Maven installation declared in the Jenkins "Global Tool Configuration"
         maven: 'apache-maven-3.8.5', // (1)
@@ -18,7 +19,8 @@ pipeline {
       sh "mvn clean verify"
 
     } 
-    }
+      }
+      }
     stage('Docker Build') {
       agent any
       steps {
