@@ -16,7 +16,7 @@ pipeline {
     ) {
 
       // Run the maven build
-      sh "mvn clean verify"
+      sh "mvn clean install"
 
     } 
       }
